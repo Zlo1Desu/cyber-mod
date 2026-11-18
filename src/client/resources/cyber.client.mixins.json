@@ -1,0 +1,16 @@
+{
+	"required": true,
+	"package": "name.cyber_zlo1.client.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"ExampleClientMixin",
+		"InventoryScreenMixin",
+		"ClientPlayerFovMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
