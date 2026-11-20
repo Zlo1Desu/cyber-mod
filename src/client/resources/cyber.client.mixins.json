@@ -5,7 +5,10 @@
 	"client": [
 		"ExampleClientMixin",
 		"InventoryScreenMixin",
-		"ClientPlayerFovMixin"
+		"ClientPlayerFovMixin",
+		"PlayerEntityRendererMixin",
+		"HeldItemRendererMixin",
+		"GameRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

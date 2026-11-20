@@ -25,4 +25,18 @@ public interface CyberwareHolder {
 	int cyber$getSecondHeartCooldown();
 
 	void cyber$setSecondHeartCooldown(int ticks);
+
+	int cyber$getTotalEquippedCapacity();
+
+	boolean cyber$hasMantisBladesEquipped();
+
+	int cyber$getCyberpsychosis();
+
+	void cyber$setCyberpsychosis(int value);
+
+	int cyber$getImmunoblockerTicks();
+
+	void cyber$setImmunoblockerTicks(int ticks);
+
+	boolean cyber$isCyberpsychoRampage();
 }

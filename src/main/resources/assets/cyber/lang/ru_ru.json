@@ -34,5 +34,12 @@
   "item.cyber.titanium_bones": "Титановые кости",
   "item.cyber.titanium_bones.desc": "Повышает прочность скелета: +Сопротивление урону и +Здоровье",
   "cyber.hud.kiroshi_scan": "КИРОСИ // СКАН ЦЕЛИ",
-  "cyber.msg.second_heart_triggered": "⚡ [ВТОРОЕ СЕРДЦЕ] Кардио-дефибриллятор активирован!"
+  "cyber.msg.second_heart_triggered": "⚡ [ВТОРОЕ СЕРДЦЕ] Кардио-дефибриллятор активирован!",
+  "item.cyber.immunoblocker": "Иммуноблокатор Мк.4",
+  "item.cyber.immunoblocker.desc": "Подавляет киберпсихоз (-45%) и стабилизирует нейросеть на 30 сек",
+  "cyber.ui.limit_exceeded": "⚠ Превышен лимит имплантов (Макс. 100)!",
+  "cyber.ui.psychosis": "КИБЕРПСИХОЗ",
+  "cyber.hud.cyberpsychosis": "НЕЙРОНАГРУЗКА",
+  "cyber.hud.cyberpsychosis_rampage": "⚠ КИБЕРПСИХОЗ // СБОЙ НЕЙРОСЕТИ ⚠",
+  "cyber.msg.cyberpsychosis_triggered": "⚠ [КИБЕРПСИХОЗ] Критическая перегрузка! Вколите иммуноблокатор!"
 }

@@ -3,6 +3,7 @@ package name.cyber_zlo1.screen;
 import name.cyber_zlo1.Cyber;
 import name.cyber_zlo1.cyberware.CyberwareItem;
 import name.cyber_zlo1.cyberware.CyberwareSlotType;
+import name.cyber_zlo1.cyberware.CyberwareState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -31,7 +32,9 @@ public class CyberwareScreenHandler extends ScreenHandler {
 			this.addSlot(new Slot(cyberwareInventory, type.getIndex(), type.getSlotX(), type.getSlotY()) {
 				@Override
 				public boolean canInsert(ItemStack stack) {
-					return stack.getItem() instanceof CyberwareItem ci && ci.getSlotType() == type;
+					return stack.getItem() instanceof CyberwareItem ci
+							&& ci.getSlotType() == type
+							&& canFitImplant(type.getIndex(), ci);
 				}
 
 				@Override
@@ -57,14 +60,25 @@ public class CyberwareScreenHandler extends ScreenHandler {
 	}
 
 	public int getTotalEquippedCapacity() {
+		return getTotalEquippedCapacityExcluding(-1);
+	}
+
+	public int getTotalEquippedCapacityExcluding(int excludedSlotIndex) {
 		int total = 0;
 		for (int i = 0; i < 10; i++) {
+			if (i == excludedSlotIndex) {
+				continue;
+			}
 			ItemStack stack = cyberwareInventory.getStack(i);
 			if (!stack.isEmpty() && stack.getItem() instanceof CyberwareItem ci) {
 				total += ci.getCyberCapacityCost();
 			}
 		}
 		return total;
+	}
+
+	public boolean canFitImplant(int slotIndex, CyberwareItem item) {
+		return getTotalEquippedCapacityExcluding(slotIndex) + item.getCyberCapacityCost() <= CyberwareState.MAX_CYBERWARE_CAPACITY;
 	}
 
 	@Override

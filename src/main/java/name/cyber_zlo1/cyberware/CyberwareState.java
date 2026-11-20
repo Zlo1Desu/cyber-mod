@@ -8,6 +8,9 @@ public final class CyberwareState {
 	public static final int MAX_ACTIVE_TICKS = 160;
 	public static final int MAX_COOLDOWN_TICKS = 400;
 	public static final float TIME_DILATION_FACTOR = 0.04f;
+	public static final int MAX_CYBERWARE_CAPACITY = 100;
+	public static final int SAFE_CAPACITY_THRESHOLD = 75;
+	public static final int MAX_CYBERPSYCHOSIS = 1000;
 
 	private static int activeTicks;
 	private static int cooldownTicks;
@@ -15,6 +18,10 @@ public final class CyberwareState {
 	private static boolean kiroshiEquipped;
 	private static boolean reinforcedTendonsEquipped;
 	private static int secondHeartCooldown;
+	private static boolean mantisBladesEquipped;
+	private static int cyberpsychosis;
+	private static boolean cyberpsychoRampage;
+	private static int totalCapacity;
 
 	private CyberwareState() {
 	}
@@ -39,6 +46,30 @@ public final class CyberwareState {
 		CyberwareState.kiroshiEquipped = kiroshiEquipped;
 		CyberwareState.reinforcedTendonsEquipped = reinforcedTendonsEquipped;
 		CyberwareState.secondHeartCooldown = secondHeartCooldown;
+	}
+
+	public static void updateFull(
+			int activeTicks,
+			int cooldownTicks,
+			boolean sandevistanEquipped,
+			boolean kiroshiEquipped,
+			boolean reinforcedTendonsEquipped,
+			int secondHeartCooldown,
+			boolean mantisBladesEquipped,
+			int cyberpsychosis,
+			boolean cyberpsychoRampage,
+			int totalCapacity
+	) {
+		CyberwareState.activeTicks = activeTicks;
+		CyberwareState.cooldownTicks = cooldownTicks;
+		CyberwareState.sandevistanEquipped = sandevistanEquipped;
+		CyberwareState.kiroshiEquipped = kiroshiEquipped;
+		CyberwareState.reinforcedTendonsEquipped = reinforcedTendonsEquipped;
+		CyberwareState.secondHeartCooldown = secondHeartCooldown;
+		CyberwareState.mantisBladesEquipped = mantisBladesEquipped;
+		CyberwareState.cyberpsychosis = cyberpsychosis;
+		CyberwareState.cyberpsychoRampage = cyberpsychoRampage;
+		CyberwareState.totalCapacity = totalCapacity;
 	}
 
 	public static int getActiveTicks() {
@@ -67,6 +98,27 @@ public final class CyberwareState {
 
 	public static int getSecondHeartCooldown() {
 		return secondHeartCooldown;
+	}
+
+	public static boolean isMantisBladesEquipped() {
+		return mantisBladesEquipped;
+	}
+
+	public static int getCyberpsychosis() {
+		return cyberpsychosis;
+	}
+
+	public static boolean isCyberpsychoRampage() {
+		return cyberpsychoRampage;
+	}
+
+	public static int getTotalCapacity() {
+		return totalCapacity;
+	}
+
+	public static boolean hasPlayerMantisBlades(PlayerEntity player) {
+		return (player instanceof CyberwareHolder h && h.cyber$hasMantisBladesEquipped())
+				|| (player != null && player.getWorld().isClient && isMantisBladesEquipped());
 	}
 
 	public static boolean isWorldTimeDilated(World world) {

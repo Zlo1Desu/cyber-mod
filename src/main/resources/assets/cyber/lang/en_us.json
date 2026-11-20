@@ -34,5 +34,12 @@
   "item.cyber.titanium_bones": "Titanium Bones",
   "item.cyber.titanium_bones.desc": "Reinforces skeleton: +Damage Resistance and +Max Health",
   "cyber.hud.kiroshi_scan": "KIROSHI // TARGET SCAN",
-  "cyber.msg.second_heart_triggered": "⚡ [SECOND HEART] Cardio-defibrillator triggered!"
+  "cyber.msg.second_heart_triggered": "⚡ [SECOND HEART] Cardio-defibrillator triggered!",
+  "item.cyber.immunoblocker": "Immunoblocker Mk.4",
+  "item.cyber.immunoblocker.desc": "Suppresses cyberpsychosis (-45%) and stabilizes neuralware for 30s",
+  "cyber.ui.limit_exceeded": "⚠ Cyberware capacity limit exceeded (Max 100)!",
+  "cyber.ui.psychosis": "CYBERPSYCHOSIS",
+  "cyber.hud.cyberpsychosis": "NEURAL LOAD",
+  "cyber.hud.cyberpsychosis_rampage": "⚠ CYBERPSYCHOSIS // SYSTEM OVERRIDE ⚠",
+  "cyber.msg.cyberpsychosis_triggered": "⚠ [CYBERPSYCHOSIS] Critical neural overload! Inject immunoblocker!"
 }

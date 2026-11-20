@@ -2,6 +2,7 @@ package name.cyber_zlo1;
 
 import name.cyber_zlo1.cyberware.CyberwareHolder;
 import name.cyber_zlo1.cyberware.CyberwareSlotType;
+import name.cyber_zlo1.cyberware.ImmunoblockerItem;
 import name.cyber_zlo1.cyberware.PassiveCyberwareItem;
 import name.cyber_zlo1.cyberware.SandevistanItem;
 import name.cyber_zlo1.network.CyberwareNetworking;
@@ -75,6 +76,12 @@ public class Cyber implements ModInitializer {
 			new PassiveCyberwareItem(CyberwareSlotType.SKELETON, 15, "item.cyber.titanium_bones.desc", new Item.Settings())
 	);
 
+	public static final Item IMMUNOBLOCKER = Registry.register(
+			Registries.ITEM,
+			id("immunoblocker"),
+			new ImmunoblockerItem(new Item.Settings())
+	);
+
 	public static final ItemGroup CYBER_GROUP = Registry.register(
 			Registries.ITEM_GROUP,
 			id("cyber_group"),
@@ -89,6 +96,7 @@ public class Cyber implements ModInitializer {
 						entries.add(MANTIS_BLADES);
 						entries.add(KERENZIKOV);
 						entries.add(TITANIUM_BONES);
+						entries.add(IMMUNOBLOCKER);
 					})
 					.build()
 	);
@@ -109,10 +117,14 @@ public class Cyber implements ModInitializer {
 				newHolder.cyber$setSandevistanActiveTicks(oldHolder.cyber$getSandevistanActiveTicks());
 				newHolder.cyber$setSandevistanCooldownTicks(oldHolder.cyber$getSandevistanCooldownTicks());
 				newHolder.cyber$setSecondHeartCooldown(oldHolder.cyber$getSecondHeartCooldown());
+				newHolder.cyber$setCyberpsychosis(oldHolder.cyber$getCyberpsychosis());
+				newHolder.cyber$setImmunoblockerTicks(oldHolder.cyber$getImmunoblockerTicks());
 			} else {
 				newHolder.cyber$setSandevistanActiveTicks(0);
 				newHolder.cyber$setSandevistanCooldownTicks(0);
 				newHolder.cyber$setSecondHeartCooldown(0);
+				newHolder.cyber$setCyberpsychosis(0);
+				newHolder.cyber$setImmunoblockerTicks(0);
 			}
 		});
 
